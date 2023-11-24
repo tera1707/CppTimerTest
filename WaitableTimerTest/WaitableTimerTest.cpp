@@ -1,12 +1,6 @@
 ﻿#include <windows.h>
 #include <stdio.h>
 
-// SetWaitableTimerの解説
-// https://www.codeproject.com/articles/49798/wake-the-pc-from-standby-or-hibernation?fid=1556013&df=90&mpp=25&prof=True&sort=Position&view=Normal&spc=Relaxed&fr=26
-// SetWaitableTimerのfResumeフラグをONにすると、スリープ中でもカウントしてくれそう。だが、ハードやwindowsの設定、その他諸々の条件が揃うと、タイマ満了時に
-// resumeしてしまいそう。
-// →ディスプレイONジイベントで、24h経過を見る方がよさそう。
-
 HANDLE hTimer = NULL;
 LARGE_INTEGER liDueTime;
 long long sec = 5LL;//タイマ満了時間(秒)
